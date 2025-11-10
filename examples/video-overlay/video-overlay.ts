@@ -90,11 +90,9 @@ const processVideo = async (resource: File | string) => {
 						ctx = canvas.getContext('2d')!;
 					}
 
-					const rotation = sample.rotation;
-
 					// Draw the original video frame
 					ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-					sample.draw(ctx, 0, 0, rotation);
+					sample.draw(ctx, 0, 0);
 
 					// Draw the watermark in the top-left corner
 					ctx.drawImage(
