@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import path from 'path';
 import fs from 'fs';
 import tailwindcss from '@tailwindcss/vite';
+import basicSsl from '@vitejs/plugin-basic-ssl';
 
 const examplesDir = path.resolve(__dirname, './examples');
 
@@ -25,10 +26,12 @@ export default defineConfig({
 	},
 	plugins: [
 		tailwindcss(),
+		basicSsl(),
 	],
 	server: {
 		hmr: false,
 		allowedHosts: true,
+		host: true,
 	},
 	build: {
 		outDir: 'dist-docs', // Build them directly into the docs build folder
